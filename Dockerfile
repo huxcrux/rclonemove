@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Hugo Blom hugo.blom1@gmail.com
 
 #update and install packages
