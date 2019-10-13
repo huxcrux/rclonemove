@@ -11,9 +11,9 @@ RUN \
   man-db \
 	curl && \
  echo "**** install rclone ****" && \
- curl -o rclone-v1.48-linux-amd64.deb https://downloads.rclone.org/v1.48/rclone-v1.48-linux-amd64.deb && \
- sudo dpkg -i rclone-v1.48-linux-amd64.deb && \
- rm rclone-v1.48-linux-amd64.deb
+ curl -o rclone-linux-amd64.deb https://downloads.rclone.org/v1.49.5/rclone-v1.49.5-linux-amd64.deb && \
+ sudo dpkg -i rclone-linux-amd64.deb && \
+ rm rclone-linux-amd64.deb
 
 
 #set workdir and copy .sh
