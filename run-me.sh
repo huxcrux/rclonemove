@@ -2,7 +2,6 @@
 
 lock="rclone.pid"
 local="/data/"
-lastrunf="lastrun.txt"
 
 if [ -z "${RCLONE_REMOTE}" ]; then
     echo "No remote Selected exiting"
@@ -24,8 +23,6 @@ echo "Selected Folder: $remotefolder";
 
 while true
 do
-  now=$(date +%s);
-  echo $now > $lastrunf;
   if [ ! -f ${lock} ]; then
     echo "Running rclone move"
     # create a lockfile containing PID...
@@ -33,7 +30,7 @@ do
     echo "$$" > ${lock}
 
     echo "-> Starting rclone move -> drive"
-    rclone move $local $remotedrive:$remotefolder --config "/config/rclone.conf" --checksum --delete-after  --tpslimit 8 --tpslimit-burst 1  --transfers 10 --min-age 60m -v --bwlimit 9M
+    rclone move $local $remotedrive:$remotefolder --config "/config/rclone.conf" --checksum --delete-after  --tpslimit 8 --tpslimit-burst 1  --transfers 10 --min-age 60m -v --bwlimit 9M --delete-empty-src-dirs
     echo "<- Finished rclone move -> drive"
 
     echo "--------------------------------"
