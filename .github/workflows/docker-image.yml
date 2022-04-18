@@ -19,5 +19,5 @@ jobs:
         run: docker build . --file Dockerfile --tag bl0m1/rclonemove:latest
       - name: Login to dockerhub
         run: docker login -u bl0m1 -p ${{ secrets.DOCKER_PASS }}
-      - name: Build the Docker image
+      - name: Push the Docker image
         run: docker push bl0m1/rclonemove:latest
