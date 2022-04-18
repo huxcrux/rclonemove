@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-MAINTAINER Hugo Blom hugo.blom1@gmail.com
 
 #update and install packages
 RUN \
