@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 MAINTAINER Hugo Blom hugo.blom1@gmail.com
 
 #update and install packages
@@ -11,7 +11,7 @@ RUN \
   man-db \
 	curl && \
  echo "**** install rclone ****" && \
- curl -o rclone-linux-amd64.deb https://downloads.rclone.org/v1.49.5/rclone-v1.49.5-linux-amd64.deb && \
+ curl -o rclone-linux-amd64.deb https://downloads.rclone.org/v1.58.0/rclone-v1.58.0-linux-amd64.deb && \
  sudo dpkg -i rclone-linux-amd64.deb && \
  rm rclone-linux-amd64.deb
 
