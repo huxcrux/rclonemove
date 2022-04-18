@@ -3,6 +3,11 @@ name: Test build Docker image
 on: [push, pull_request]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: bl0m1/actions/blob/docker-lint@docker-lint
   build:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master'
