@@ -15,6 +15,6 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Login to dockerhub
-        run: docker login -u bl0m1 ${{ secrets.DOCKER_PASS }}
+        run: docker login -u bl0m1 -p ${{ secrets.DOCKER_PASS }}
       - name: Build the Docker image
         run: docker psuh bl0m1/rclonemove:latest
