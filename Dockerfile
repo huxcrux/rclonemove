@@ -9,6 +9,8 @@ RUN echo "**** install rclone ****" && \
   mv rclone-*-linux-amd64/rclone /usr/bin/rclone && \
   rm -rf rclone-*-linux-amd64
 
+RUN apk del curl unzip
+
 #set workdir and copy .sh
 WORKDIR /rclone
 COPY run-me.sh /rclone/
