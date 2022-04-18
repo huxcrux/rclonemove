@@ -3,12 +3,18 @@ name: Test build Docker image
 on: [push, pull_request]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag bl0m1/rclonemove:$(date +%s)
+      run: docker build . --file Dockerfile --tag bl0m1/rclonemove:latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Login to dockerhub
+        run: docker login -u bl0m1 ${{ secrets.DOCKER_PASS }}
+      - name: Build the Docker image
+        run: docker psuh bl0m1/rclonemove:latest
