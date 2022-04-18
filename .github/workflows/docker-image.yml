@@ -5,15 +5,19 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.ref =!= 'refs/heads/master'
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag bl0m1/rclonemove:latest
-  deploy:
+  buildandpush:
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/master'
     steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag bl0m1/rclonemove:latest
       - name: Login to dockerhub
         run: docker login -u bl0m1 -p ${{ secrets.DOCKER_PASS }}
       - name: Build the Docker image
