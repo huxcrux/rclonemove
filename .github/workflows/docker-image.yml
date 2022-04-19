@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: bl0m1/actions/docker-lint@docker-lint
+    - uses: bl0m1/actions/docker-lint@main
   buildandpush:
     runs-on: ubuntu-latest
     needs: lint
