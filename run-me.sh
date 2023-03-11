@@ -26,7 +26,7 @@ do
   # rclone can take a while. This keeps multiple instances from running.
 
   echo "-> Starting rclone move -> drive"
-  rclone move $local $remotedrive:$remotefolder --config "/config/rclone.conf" --checksum --delete-after  --tpslimit 8 --tpslimit-burst 1  --transfers 10 --min-age 60m -v --bwlimit 9M --delete-empty-src-dirs
+  rclone move $local $remotedrive:$remotefolder --config "/config/rclone.conf" --checksum --delete-after  --tpslimit 8 --tpslimit-burst 1  --transfers 10 --min-age 10m -v --bwlimit 9M --delete-empty-src-dirs
   echo "<- Finished rclone move -> drive"
 
   echo "--------------------------------"
